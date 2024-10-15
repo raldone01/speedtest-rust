@@ -58,6 +58,8 @@ jobs:
             type=raw,value=release,enable=${{ github.event_name == 'release' }},suffix=${{ inputs.docker-image-suffix }}
             # Tag as latest only for Debian in release events
             type=raw,value=latest,enable=${{ github.event_name == 'release' && inputs.cache-name == 'debian' }}
+            # Tag as dev for main-fork branch
+            type=raw,value=dev,enable=${{ github.ref == 'refs/heads/main-fork' }}
     outputs:
       image: ${{ steps.docker-images.outputs.image }}
       push: ${{ steps.docker-images.outputs.push }}

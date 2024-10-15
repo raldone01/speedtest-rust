@@ -9,6 +9,7 @@ on:
     branches:
       - feat/docker # This can be removed but is useful for testing images will be tagged feat-docker...
       # Other branches can be added here
+      - main-fork #
   release:
     types:
       - published
